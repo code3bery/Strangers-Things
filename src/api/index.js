@@ -20,6 +20,35 @@ const getOptions = (method,body,token) => ({
 });
 
 
+export const makePost = async (token, {title, description, price, location, willDeliver}) => {
+    console.log('makePost ' + token)
+    try {
+      const response = await fetch(`${BASE_URL}/posts`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          post: {
+            title,
+            location,
+            description,
+            price,
+            willDeliver
+          }
+        })
+      });
+      const result = await response.json();
+      console.log(result);
+      return result
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+
+
 export const callAPI = async({path, method, body, token}) => {
     try {
         const result = await fetch(

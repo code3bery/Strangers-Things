@@ -1,5 +1,6 @@
+import React from "react";
 import { BASE_URL } from "../api";
-import { useState, useEffect } from "react";
+import { useState,useEffect } from "react";
 
 const Profile = ({ token, setPosts }) => {
   const [user, setUser] = useState('');
@@ -49,7 +50,7 @@ const Profile = ({ token, setPosts }) => {
         <div>
           <h2> Welcome {user.username}!</h2>
           <h1>Inbox</h1>
-          <h1>Your Messages</h1>
+          <h1>Messages</h1>
           {user.messages && user.messages.map((message) => (
             <div className="messagebox" key={message._id}>
               <h4>Subject: {message.post.title}</h4>

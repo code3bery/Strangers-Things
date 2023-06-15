@@ -3,7 +3,7 @@ import { Route, Link, NavLink, Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
 import { BASE_URL } from './api';
-import { Login, Profile, Post, Update, Delete, Message } from './components';
+import { Login, Profile, Post, Update, Delete, Message, } from './components';
 
 const App = () => {
   const [posts, setPosts] = useState([]);

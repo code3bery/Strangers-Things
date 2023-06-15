@@ -22,7 +22,7 @@ useEffect(() => {
     return  (
         <>
      <h1>Welcome!</h1>
-        {token && <Link to="/posts/createpost"> Share your Thoughts!</Link>}
+        {token && <Link to="/post/createpost"> Share your Thoughts!</Link>}
         <Search posts={posts} token={token} fetchPosts={fetchPosts} />
    
    </> 
