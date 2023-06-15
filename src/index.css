@@ -1,13 +1,71 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+h1 {
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+nav {
+  display:flex;
+  flex-direction: row;
+  width:100vw;
+  justify-content: space-around;
+  font-size:2em;
+  margin-bottom:10vh;
+}
+
+.nav{
+text-decoration:none;
+}
+.active {
+text-decoration:underline;
+}
+.nav:hover{
+color:#1E96C8;
+}
+
+button,input {
+font-family: 'Montserrat', sans-serif;
+}
+
+input.loginuser, select {
+  display:flex;
+  justify-content: center;
+  width: 50vw;
+  padding: 12px 20px;
+  margin: 25px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50vw;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.postin {
+  border-radius: 5px;
+  background-color: #8e538d2f;
+  padding: 20px;
+}
+
+form {
+  display:inline-block;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:left;
+}
+
+form button {
+  padding: 1em 2em;
+  background-color: #59A9C2;
+  color: white;
+  border: none;
+  font-size: 1em;
+  transition: all 1s ease;
+  outline: none;
+  border-radius:5%;
 }
