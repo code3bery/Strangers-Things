@@ -19,7 +19,7 @@ const Profile = ({ token, setPosts }) => {
       if (response.ok) {
         return result;
       } else {
-        throw new Error(result.error || "Something went wrong.");
+        throw new Error(result.error || "Try Again Later.");
       }
     } catch (err) {
       console.error(err);
@@ -50,6 +50,22 @@ const Profile = ({ token, setPosts }) => {
         <div>
           <h2> Welcome {user.username}!</h2>
           <h1>Inbox</h1>
+          {/* to do: display messages sent to this user */}
+          {user.messages && user.messages.filter(message => message.post.author.username === user.username)
+          .map(message => (
+            <div className="messagebox" key={message._id}>
+              <h4>Subject: {message.post.title}</h4>
+              <h4>Message: {message.content}</h4>
+              <h4>From: {message.fromUser.username}</h4>
+              {user._id === message.fromUser._id && (
+                <h4>Sent to: {message.post.author.username}</h4>
+              )}
+              {user._id !== message.fromUser._id && (
+                <h5>Sent by: {message.fromUser.username}</h5>
+              )}
+              <br />
+            </div>
+          ))}
           <h1>Messages</h1>
           {user.messages && user.messages.map((message) => (
             <div className="messagebox" key={message._id}>

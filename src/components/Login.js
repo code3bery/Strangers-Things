@@ -27,16 +27,18 @@ const handleSubmit = async (event) => {
         method: "post",
         body: requestBody,    
     })
+    console.log(data)
     const {token} = data;
     setToken(token);
-    history.push('/profile');
     
     
-        const guest = data?.guest;
+        const guest = data?.user;
         if (guest){
             setUsername('');setPassword('');setToken(token); setGuest(guest);
-            history.push('/posts');
+            history.push('/profile');
         }
+        else{console.error('did not find user')}
+
  }
 
     return(
@@ -70,7 +72,7 @@ const handleSubmit = async (event) => {
             <button className="buttonlo" type="submit">{actionType === "register" ? "Register" : "Log In" }</button>
             {actionType === "register"
                 ? <Link to="/profile/login">Already a Member? Log in here</Link>
-                : <Link to="/profile/register">First Time Here? Register here.</Link>
+                : <Link to="/profile/register">First Time? Register here.</Link>
             
             }
 

@@ -8,7 +8,7 @@ import { Login, Profile, Post, Update, Delete, Message, } from './components';
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [token, setToken] = useState(localStorage.getItem('token') ?? null);
-  const [, setGuest] = useState(null);
+  const [guest, setGuest] = useState(null);
   const history = useHistory();
 
   const fetchPosts = useCallback(async () => {
@@ -66,7 +66,7 @@ const App = () => {
           ) : <Link className="linklog" to="/profile/login">Welcome Back!</Link>
 
     }
-    <Profile token={token} fetchPosts={fetchPosts} Delete={Delete} posts={posts} setPosts={setPosts} />    
+    <Profile token={token} fetchPosts={fetchPosts} Delete={Delete} guest={guest} posts={posts} setPosts={setPosts} />    
   </Route>
   <Route exact path ="/posts/createpost">
   </Route>

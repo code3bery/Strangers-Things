@@ -4,17 +4,12 @@ import { registerUser } from '../api';
 const Register = ({ setToken }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorMessage(null); 
-    if (password !== passwordConfirmation) {
-      setErrorMessage("Passwords Do Not Match");
-      return;
-    }
     setLoading(true);
     try {
       const response = await registerUser(username, password);
@@ -54,20 +49,10 @@ const Register = ({ setToken }) => {
           minLength={6}
         />
       </div>
-      <div>
-        <label htmlFor="passwordConfirmation">Confirm Password:</label>
-        <input
-          type="password"
-          id="passwordConfirmation"
-          value={passwordConfirmation}
-          onChange={(event) => setPasswordConfirmation(event.target.value)}
-          required
-          minLength={6}
-        />
-      </div>
       {errorMessage && <p>{errorMessage}</p>}
       <button type="submit" disabled={loading}>{loading ? 'Registering...' : 'Register'}</button>
     </form>
   );
 };
+
 export default Register;
